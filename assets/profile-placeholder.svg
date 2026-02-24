@@ -1,0 +1,16 @@
+<svg width="900" height="1200" viewBox="0 0 900 1200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Profile placeholder">
+  <rect width="900" height="1200" fill="#0f1728"/>
+  <rect x="26" y="26" width="848" height="1148" rx="34" fill="url(#g)" stroke="rgba(255,255,255,0.3)"/>
+  <circle cx="450" cy="420" r="180" fill="#f0f4ff" fill-opacity="0.15"/>
+  <rect x="270" y="650" width="360" height="300" rx="180" fill="#f0f4ff" fill-opacity="0.15"/>
+  <path d="M180 1050C260 980 360 944 450 944C540 944 640 980 720 1050" stroke="#2EE0FF" stroke-width="18" stroke-linecap="round"/>
+  <text x="450" y="1090" text-anchor="middle" fill="#E6EDF8" font-family="Arial" font-size="38" letter-spacing="2">
+    ADD YOUR PHOTO
+  </text>
+  <defs>
+    <linearGradient id="g" x1="80" y1="0" x2="900" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7A00" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#2EE0FF" stop-opacity="0.45"/>
+    </linearGradient>
+  </defs>
+</svg>

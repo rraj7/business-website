@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self' mailto:"
+    />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+    <meta name="description" content="Rishi Raj - Portfolio" />
+    <title>Rishi Raj | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="site.config.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <div class="background-noise" aria-hidden="true"></div>
+    <header class="site-header">
+      <a href="#top" class="brand" id="brand-name">Rishi Raj</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#wins">Wins</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="button ghost" id="header-resume-link" href="/assets/resume.pdf" download>Resume</a>
+    </header>
+
+    <main id="top">
+      <section class="hero section reveal">
+        <div class="hero-copy">
+          <p class="eyebrow">Open To Work • Software Engineering • Architecture</p>
+          <h1 id="hero-title">Engineer who builds bold, reliable products.</h1>
+          <p id="hero-bio"></p>
+          <div class="hero-actions">
+            <a id="email-cta" class="button" href="mailto:contact@rishi-raj.me">Email Me</a>
+            <a
+              id="linkedin-cta"
+              class="button ghost"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Message on LinkedIn
+            </a>
+            <a
+              id="calendar-cta"
+              class="button ghost"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Book a Call
+            </a>
+          </div>
+        </div>
+        <figure class="hero-photo-frame">
+          <img id="profile-image" src="/assets/profile-placeholder.svg" alt="Rishi Raj profile" />
+        </figure>
+      </section>
+
+      <section class="stats section reveal" id="stats"></section>
+
+      <section class="about section reveal" id="about">
+        <h2>Built for recruiters. Designed for humans.</h2>
+        <p id="about-summary"></p>
+      </section>
+
+      <section class="wins section reveal" id="wins">
+        <h2>Highlighted Achievements</h2>
+        <div class="card-grid" id="achievement-grid"></div>
+      </section>
+
+      <section class="projects section reveal" id="projects">
+        <h2>Selected Work</h2>
+        <div class="card-grid" id="project-grid"></div>
+      </section>
+
+      <section class="contact section reveal" id="contact">
+        <h2>Let’s talk opportunities</h2>
+        <p>
+          Reach me at <a id="contact-email-link" href="mailto:contact@rishi-raj.me">contact@rishi-raj.me</a>
+        </p>
+        <div class="contact-grid">
+          <a id="contact-linkedin-link" class="contact-card" href="#" target="_blank" rel="noopener noreferrer">
+            <h3>LinkedIn DM</h3>
+            <p>Quickest way for recruiter outreach.</p>
+          </a>
+          <a id="contact-calendar-link" class="contact-card" href="#" target="_blank" rel="noopener noreferrer">
+            <h3>Book Calendar Slot</h3>
+            <p>Schedule directly into Google Calendar.</p>
+          </a>
+          <a id="contact-resume-link" class="contact-card" href="/assets/resume.pdf" download>
+            <h3>Download Resume</h3>
+            <p>PDF resume optimized for recruiter review.</p>
+          </a>
+          <a id="contact-email-card" class="contact-card" href="mailto:contact@rishi-raj.me">
+            <h3>Email</h3>
+            <p>Direct email to primary inbox.</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <span id="footer-name">Rishi Raj</span> • <span id="footer-role">Software Engineer</span> •
+        <span id="footer-location">United States</span>
+      </p>
+    </footer>
+  </body>
+</html>
