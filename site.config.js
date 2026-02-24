@@ -45,5 +45,5 @@ window.PORTFOLIO_CONFIG = {
       detail: "Built a metrics dashboard for quick visibility into KPIs and project health.",
     },
   ],
-  profileImage: "assets/profile-placeholder.svg",
+  profileImage: "assets/profile.jpg",
 };
