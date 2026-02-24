@@ -5,10 +5,20 @@
   const allowedSchemes = new Set(["https:", "mailto:", "tel:"]);
 
   function safeUrl(raw, fallback = "#") {
+    if (typeof raw !== "string") return fallback;
+    const candidate = raw.trim();
+    if (!candidate) return fallback;
+
+    const hasScheme = /^[a-zA-Z][a-zA-Z\\d+.-]*:/.test(candidate);
+    if (!hasScheme) {
+      // Keep relative paths relative to the current document (works on project pages).
+      if (candidate.startsWith("//")) return fallback;
+      return candidate;
+    }
+
     try {
-      const resolved = new URL(raw, window.location.origin);
-      const isRelative = resolved.origin === window.location.origin;
-      if (allowedSchemes.has(resolved.protocol) || isRelative) {
+      const resolved = new URL(candidate);
+      if (allowedSchemes.has(resolved.protocol)) {
         return resolved.href;
       }
     } catch (err) {
