@@ -5,7 +5,7 @@ window.PORTFOLIO_CONFIG = {
   email: "contact@rishi-raj.me",
   linkedinUrl: "https://www.linkedin.com/in/rishiraj31/",
   calendarUrl: "https://calendar.google.com/calendar/appointments/schedules",
-  resumeUrl: "/assets/resume.pdf",
+  resumeUrl: "assets/resume.pdf",
   heroTitle: "Engineer who builds bold, reliable products.",
   heroBio:
     "I design and ship production-grade software with a strong focus on user impact, clean architecture, and fast delivery.",
@@ -45,5 +45,5 @@ window.PORTFOLIO_CONFIG = {
       detail: "Built a metrics dashboard for quick visibility into KPIs and project health.",
     },
   ],
-  profileImage: "/assets/profile-placeholder.svg",
+  profileImage: "assets/profile-placeholder.svg",
 };

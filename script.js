@@ -86,7 +86,7 @@
 
   const profileImage = document.getElementById("profile-image");
   if (profileImage && typeof cfg.profileImage === "string") {
-    profileImage.src = safeUrl(cfg.profileImage, "/assets/profile-placeholder.svg");
+    profileImage.src = safeUrl(cfg.profileImage, "assets/profile-placeholder.svg");
   }
 
   const statsRoot = document.getElementById("stats");
