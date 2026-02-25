@@ -4,8 +4,11 @@ window.PORTFOLIO_CONFIG = {
   location: "United States",
   email: "contact@rishi-raj.me",
   linkedinUrl: "https://www.linkedin.com/in/rishiraj31/",
-  calendarUrl: "https://calendar.google.com/calendar/appointments/schedules",
+  githubUrl: "https://github.com/rraj7",
+  calendarUrl:
+    "https://calendar.google.com/calendar/render?action=TEMPLATE&add=contact%40rishi-raj.me&text=Intro%20Call%20with%20Rishi%20Raj&details=Hi%20Rishi%2C%20I%20would%20like%20to%20discuss%20a%20role%20with%20you.&location=Google%20Meet",
   resumeUrl: "assets/resume.pdf",
+  resumeDownloadName: "RishiRaj_Resume.pdf",
   heroTitle: "Engineer who builds bold, reliable products.",
   heroBio:
     "I design and ship production-grade software with a strong focus on user impact, clean architecture, and fast delivery.",

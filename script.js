@@ -33,12 +33,21 @@
     node.textContent = value;
   }
 
+  function sanitizeFilename(value, fallback) {
+    if (typeof value !== "string") return fallback;
+    const trimmed = value.trim();
+    if (!trimmed) return fallback;
+    const cleaned = trimmed.replace(/[^a-zA-Z0-9._-]/g, "_");
+    return cleaned || fallback;
+  }
+
   function setLink(id, href, opts = {}) {
     const node = document.getElementById(id);
     if (!node) return;
     node.setAttribute("href", safeUrl(href));
     if (opts.download) {
-      node.setAttribute("download", "");
+      const filename = sanitizeFilename(opts.downloadName, "RishiRaj_Resume.pdf");
+      node.setAttribute("download", filename);
     }
   }
 
@@ -82,17 +91,37 @@
   setText("footer-location", cfg.location);
 
   const emailHref = `mailto:${cfg.email}`;
+  const defaultCalendarInviteUrl =
+    `https://calendar.google.com/calendar/render?action=TEMPLATE&add=${encodeURIComponent(cfg.email)}` +
+    `&text=${encodeURIComponent(`Intro Call with ${cfg.name}`)}` +
+    `&details=${encodeURIComponent(`Hi ${cfg.name}, I would like to discuss a role with you.`)}` +
+    `&location=${encodeURIComponent("Google Meet")}`;
+  const configuredCalendarUrl = typeof cfg.calendarUrl === "string" ? cfg.calendarUrl.trim() : "";
+  const calendarHref =
+    configuredCalendarUrl && !configuredCalendarUrl.includes("/calendar/appointments/schedules")
+      ? configuredCalendarUrl
+      : defaultCalendarInviteUrl;
+
   setLink("email-cta", emailHref);
   setLink("contact-email-link", emailHref);
   setLink("contact-email-card", emailHref);
   setText("contact-email-link", cfg.email);
 
+  setLink("nav-github-link", cfg.githubUrl);
+  setLink("github-cta", cfg.githubUrl);
+  setLink("contact-github-link", cfg.githubUrl);
   setLink("linkedin-cta", cfg.linkedinUrl);
   setLink("contact-linkedin-link", cfg.linkedinUrl);
-  setLink("calendar-cta", cfg.calendarUrl);
-  setLink("contact-calendar-link", cfg.calendarUrl);
-  setLink("header-resume-link", cfg.resumeUrl, { download: true });
-  setLink("contact-resume-link", cfg.resumeUrl, { download: true });
+  setLink("calendar-cta", calendarHref);
+  setLink("contact-calendar-link", calendarHref);
+  setLink("header-resume-link", cfg.resumeUrl, {
+    download: true,
+    downloadName: cfg.resumeDownloadName,
+  });
+  setLink("contact-resume-link", cfg.resumeUrl, {
+    download: true,
+    downloadName: cfg.resumeDownloadName,
+  });
 
   const profileImage = document.getElementById("profile-image");
   if (profileImage && typeof cfg.profileImage === "string") {
@@ -157,9 +186,4 @@
   );
   if (statsRoot) statsObserver.observe(statsRoot);
 
-  const glow = document.querySelector(".cursor-glow");
-  window.addEventListener("mousemove", (event) => {
-    if (!glow) return;
-    glow.style.transform = `translate(${event.clientX - 140}px, ${event.clientY - 140}px)`;
-  });
 })();
