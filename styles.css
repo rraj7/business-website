@@ -63,8 +63,8 @@ body {
   padding: 1.1rem 0;
   position: sticky;
   top: 0;
-  backdrop-filter: blur(12px);
-  background: rgba(8, 9, 13, 0.55);
+  backdrop-filter: none;
+  background: transparent;
   z-index: 20;
 }
 
@@ -138,6 +138,15 @@ h2 {
   color: var(--ink-1);
   max-width: 62ch;
   margin-top: 1rem;
+}
+
+#contact-email-link {
+  color: var(--ink-0);
+}
+
+#contact-email-link:hover,
+#contact-email-link:focus-visible {
+  color: var(--accent-0);
 }
 
 .hero-actions {
