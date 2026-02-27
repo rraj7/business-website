@@ -63,8 +63,9 @@ body {
   padding: 1.1rem 0;
   position: sticky;
   top: 0;
-  backdrop-filter: none;
-  background: transparent;
+  backdrop-filter: blur(10px) saturate(120%);
+  background: linear-gradient(180deg, rgba(8, 9, 13, 0.82), rgba(8, 9, 13, 0.56));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
   z-index: 20;
 }
 
@@ -242,11 +243,41 @@ h2 {
   gap: 0.9rem;
 }
 
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
 .card,
 .contact-card {
   padding: 1rem;
   text-decoration: none;
   color: inherit;
+}
+
+.tech-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.9rem 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.tech-card img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.tech-card span {
+  color: var(--ink-0);
+  font-size: 0.9rem;
+  line-height: 1.2;
 }
 
 .card h3,
@@ -310,7 +341,8 @@ h2 {
 
   .stats,
   .card-grid,
-  .contact-grid {
+  .contact-grid,
+  .tech-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -328,7 +360,8 @@ h2 {
 
   .stats,
   .card-grid,
-  .contact-grid {
+  .contact-grid,
+  .tech-grid {
     grid-template-columns: 1fr;
   }
 

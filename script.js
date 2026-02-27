@@ -71,8 +71,15 @@
 
     const value = document.createElement("p");
     value.className = "stat-value";
-    value.dataset.target = String(item.value || 0);
-    value.textContent = "0";
+    if (typeof item.value === "number") {
+      value.dataset.target = String(item.value);
+      if (typeof item.suffix === "string") {
+        value.dataset.suffix = item.suffix;
+      }
+      value.textContent = "0";
+    } else {
+      value.textContent = String(item.value || "");
+    }
 
     const label = document.createElement("p");
     label.className = "stat-label";
@@ -82,10 +89,28 @@
     return card;
   }
 
+  function makeTechCard(item) {
+    const card = document.createElement("article");
+    card.className = "tech-card";
+
+    const icon = document.createElement("img");
+    icon.loading = "lazy";
+    icon.decoding = "async";
+    icon.alt = `${item.name || "Technology"} icon`;
+    icon.src = safeUrl(item.icon, "assets/profile-placeholder.svg");
+
+    const name = document.createElement("span");
+    name.textContent = item.name || "Technology";
+
+    card.append(icon, name);
+    return card;
+  }
+
   setText("brand-name", cfg.name);
   setText("hero-title", cfg.heroTitle);
   setText("hero-bio", cfg.heroBio);
   setText("about-summary", cfg.aboutSummary);
+  setText("technologies-summary", cfg.technologiesSummary);
   setText("footer-name", cfg.name);
   setText("footer-role", cfg.role);
   setText("footer-location", cfg.location);
@@ -138,6 +163,11 @@
     cfg.achievements.forEach((item) => achievementsRoot.append(makeCard(item)));
   }
 
+  const technologiesRoot = document.getElementById("tech-grid");
+  if (technologiesRoot && Array.isArray(cfg.technologies)) {
+    cfg.technologies.forEach((item) => technologiesRoot.append(makeTechCard(item)));
+  }
+
   const projectsRoot = document.getElementById("project-grid");
   if (projectsRoot && Array.isArray(cfg.projects)) {
     cfg.projects.forEach((item) => projectsRoot.append(makeCard(item)));
@@ -157,7 +187,7 @@
   );
   revealNodes.forEach((node) => observer.observe(node));
 
-  const statValues = document.querySelectorAll(".stat-value");
+  const statValues = document.querySelectorAll(".stat-value[data-target]");
   let hasCounted = false;
   const statsObserver = new IntersectionObserver(
     (entries) => {
@@ -167,15 +197,16 @@
         hasCounted = true;
         statValues.forEach((node) => {
           const target = Number(node.dataset.target || 0);
+          const suffix = node.dataset.suffix || "";
           const durationMs = 900;
           const started = performance.now();
           function tick(now) {
             const progress = Math.min((now - started) / durationMs, 1);
-            node.textContent = String(Math.floor(progress * target));
+            node.textContent = `${Math.floor(progress * target)}${suffix}`;
             if (progress < 1) {
               requestAnimationFrame(tick);
             } else {
-              node.textContent = String(target);
+              node.textContent = `${target}${suffix}`;
             }
           }
           requestAnimationFrame(tick);
